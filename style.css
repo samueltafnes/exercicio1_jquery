@@ -1,0 +1,64 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(211, 211, 211);
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    max-width: 700px;
+    width: 95%;
+    margin: 0 auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    overflow: hidden;
+}
+#tarefas{
+    padding: 40px;
+}
+
+header{
+    background-color: rgb(57, 68, 85);
+    color: white;
+    padding: 12px;
+    text-align: center;
+}
+
+#new_task{
+    display: flex;
+    margin-bottom: 40px;
+}
+
+input, button{
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 12px;
+    border-radius: 5px;
+}
+#new_task input{
+    width: 100%;
+    margin-right: 16px;
+    border-bottom: 2px solid rgb(57, 68, 85);
+}
+button{
+    left: 100%;
+    width: max-content;
+    white-space: nowrap;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(57, 68, 85);
+    color: white;
+}
+
+#task_list li{
+    padding: 8px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}

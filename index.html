@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+    <head>
+        <meta chatset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial_scale="1.0">
+        <title>Lista de tarefas</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Lista de Tarefas</h1>
+        </header>
+
+        <section id="tarefas">
+            <form id="new_task">
+                <input id="desc_tarefa" type="text" placeholder="Descrição da nova tarefa" required>
+                <button id="btn-adicionar" type="submit">Adicionar tarefa</button>
+            </form>
+
+            <ul id="task_list">
+            </ul>
+
+        </section>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
