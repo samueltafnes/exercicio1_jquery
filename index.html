@@ -12,20 +12,36 @@
         <header>
             <h1>Lista de Tarefas</h1>
         </header>
-
-        <section id="tarefas">
-            <form id="new_task">
-                <input id="desc_tarefa" type="text" placeholder="Descrição da nova tarefa" required>
+     
+        <div id="itens">
+            <form id="nova-tarefa">
+                <input id="nome-tarefa" type="text" placeholder="Descrição da nova tarefa" required>
                 <button id="btn-adicionar" type="submit">Adicionar tarefa</button>
             </form>
+        
 
-            <ul id="task_list">
-            </ul>
+        <ul id="lista-de-tarefas">      
+        </ul>
 
-        </section>
+        <ul id="lista-de-tarefas-concluidas"> 
+            <h2>Concluidas</h2>
+            <li>
+                <label>
+                    <input type="checkbox" id="check">
+                    <span class="tarefa">Samuel</span>
+	            </label>
+	            <span id="icones">
+		            <ion-icon name="pencil" class="icone md hydrated" id="editar" role="img">…</ion-icon>
+		            <ion-icon name="trash" class="icone md hydrated" id="excluir" role="img">…</ion-icon>
+	            </span>
+            </li>
+        </ul>
+        </div>
     </div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="./main.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

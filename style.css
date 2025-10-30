@@ -1,13 +1,21 @@
-*{
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, input, button{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style:normal;
 }
+
 body{
-    background-color: rgb(211, 211, 211);
+
     position: relative;
     width: 100vw;
     height: 100vh;
+    background-color: rgb(226, 226, 226);
 }
 .container{
     max-width: 700px;
@@ -17,18 +25,18 @@ body{
     border-radius: 10px;
     overflow: hidden;
 }
-#tarefas{
-    padding: 40px;
-}
-
 header{
     background-color: rgb(57, 68, 85);
     color: white;
-    padding: 12px;
+    padding: 28px 0;
     text-align: center;
+    font-size: 1.4rem;   
 }
 
-#new_task{
+#itens{
+    padding: 20px;
+}
+#itens > #nova-tarefa{
     display: flex;
     margin-bottom: 40px;
 }
@@ -39,14 +47,17 @@ input, button{
     margin: 0;
     padding: 12px;
     border-radius: 5px;
+    font-size: 1rem;
 }
-#new_task input{
+input{
+    background-color: transparent;
+}
+#nova-tarefa input{
     width: 100%;
     margin-right: 16px;
     border-bottom: 2px solid rgb(57, 68, 85);
 }
 button{
-    left: 100%;
     width: max-content;
     white-space: nowrap;
     cursor: pointer;
@@ -56,9 +67,60 @@ button:hover{
     color: white;
 }
 
-#task_list li{
-    padding: 8px;
-    list-style: none;
+#lista-de-tarefas{
+    border: 2px solid green;
+}
+
+#lista-de-tarefas li{
+    margin: 6px 0;
+    border-radius: 6px;
+    background-color: rgb(236, 236, 236);
+    color: rgb(57, 68, 85);
+    align-items: center;
+    height: 40px;
+    display: flex;
+    overflow: hidden;
+}
+label{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    align-content: center;
     display: flex;
     justify-content: space-between;
 }
+label:hover{
+    background-color: rgb(84, 97, 116);
+    color: rgb(236, 236, 236);
+}
+#check{
+    margin-left: 8px;
+}
+#check:checked ~ .tarefa{
+    text-decoration: line-through;
+    color: gray;
+}
+.tarefa{
+    align-content: center;
+    width: 100%;
+}
+#icones{
+    display: flex;
+    align-items: center;
+}
+.icone{
+    height: 28px;
+    width: 28px;
+    padding: 6px;
+    cursor: pointer; 
+    transition: all 0.15s ease-in;
+}
+#editar:hover {
+    background-color: rgb(57, 68, 85);
+    color: white;
+}
+#excluir:hover {
+    background-color: rgb(173, 66, 66);
+    color: white;
+}
+
