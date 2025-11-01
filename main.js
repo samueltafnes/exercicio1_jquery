@@ -18,8 +18,8 @@ $(document).ready(function(){
     }
 
     // Icones dos botoes de Editar e Excluir
-    const btn_editar = `<ion-icon name="pencil" class="icone" id="editar"></ion-icon>`;
-    const btn_excluir = `<ion-icon name="trash" class="icone" id="excluir"></ion-icon>`;
+    const btn_editar = '<ion-icon name="pencil" class="icone" id="editar"></ion-icon>';
+    const btn_excluir = '<ion-icon name="trash" class="icone" id="excluir"></ion-icon>';
 
     // Adiciona a nova tarefa na lista de tarefas pendentes
     $('form').on('submit', function(e){
@@ -68,17 +68,16 @@ $(document).ready(function(){
 
         // Edita a tarefa selecionada
         $('ion-icon[name="pencil"]').on('click', function(){
-            var linha = $(this).closest('li');
-            tarefa = linha.find('.tarefa');
-            tarefa.val('Editado');
+            var span = $(this).closest('li').find('.tarefa');
+            var input = $('<input type="text" value="' + span.text() + '">');
+            console.log(input);
+            span.replaceWith(input);
+            input.select();
         })
-
-
 
         // Exclui a tarefa selecionada da lista
         $('ion-icon[name="trash"]').on('click', function(){
-            console.log($(this).closest('li'));
-            //$(this).closest('li').remove();
+            $(this).closest('li').remove();
             verificar_lista();
         }) 
         
