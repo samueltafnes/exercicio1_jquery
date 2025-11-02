@@ -1,6 +1,6 @@
 $(document).ready(function(){
     
-    // Função que valida e oculta a lista de tarefas de estiver vazia
+    // Função que valida se a lista esta vazia para ocultar ou exibir o titulo
     function verificar_lista(){
         var quantidade_pendentes = ($('#tarefas-pendentes #check')).length;
         var quantidade_concluidas = ($('#tarefas-concluidas #check')).length;
@@ -65,14 +65,18 @@ $(document).ready(function(){
             verificar_lista(); 
         });
 
-
-        // Edita a tarefa selecionada
+        // Edita a tarefa selecionada, permitindo a edição trocando o campo span por um input temporário 
         $('ion-icon[name="pencil"]').on('click', function(){
-            var span = $(this).closest('li').find('.tarefa');
-            var input = $('<input type="text" value="' + span.text() + '">');
-            console.log(input);
-            span.replaceWith(input);
-            input.select();
+            var tarefa = $(this).closest('li').find('.tarefa'); //Localiza o campo SPAN com o nome da tarefa
+            var input = $('<input type="text" class="tarefa" name="rename" value="' + tarefa.text() + '">'); //Cria um campo INPUT 
+            tarefa.replaceWith(input); //Substitui o campo SPAN pelo INPUT para obter o novo titulo da tarefa
+            input.select(); //foca o campo input para editar
+            
+            //Monitora o novo campo INPUT e se tirar o foco do campo INPUT executa a função e o substitui pela SPAN com o novo titulo da tarefa
+            $(this).closest('li').find('input[name="rename"]').on('blur', function(){
+                var span = $('<span class="tarefa">' + input.val() + '</span>');
+                input.replaceWith(span);
+            })   
         })
 
         // Exclui a tarefa selecionada da lista
@@ -80,8 +84,5 @@ $(document).ready(function(){
             $(this).closest('li').remove();
             verificar_lista();
         }) 
-        
-
     });
 });
-
