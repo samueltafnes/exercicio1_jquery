@@ -6,14 +6,14 @@ $(document).ready(function(){
         var quantidade_concluidas = ($('#tarefas-concluidas #check')).length;
 
         if (quantidade_pendentes){
-            $('#tarefas-pendentes').show();
+            $('#tarefas-pendentes').slideDown(150);
         }else {
-            $('#tarefas-pendentes').hide();
+            $('#tarefas-pendentes').slideUp(150);
         }
         if (quantidade_concluidas){
-            $('#tarefas-concluidas').show();
+            $('#tarefas-concluidas').slideDown(150);
         }else {
-            $('#tarefas-concluidas').hide();
+            $('#tarefas-concluidas').slideUp(150);
         }
     }
 
@@ -81,8 +81,14 @@ $(document).ready(function(){
 
         // Exclui a tarefa selecionada da lista
         $('ion-icon[name="trash"]').on('click', function(){
-            $(this).closest('li').remove();
-            verificar_lista();
+            var tarefa = $(this).closest('li');
+            tarefa.animate({
+                height: 0,
+                opacity: 0
+            }, 200, function(){
+                tarefa.remove();
+                verificar_lista();
+            });
         }) 
     });
 });
